@@ -1,26 +1,136 @@
 export type Language = "zh" | "en"
 
+export type Translation = {
+  metadata: {
+    title: string
+    description: string
+    keywords: string[]
+  }
+  common: {
+    brand: string
+    tryNow: string
+  }
+  nav: {
+    features: string
+    faq: string
+    contact: string
+    tryNow: string
+    fonts: string
+    templates: string
+  }
+  hero: {
+    title: string
+    subtitle: string
+    capture: string
+    input: {
+      placeholder: string
+      maxLength: string
+    }
+    settings: {
+      title: string
+      resolution: string
+      aspectRatio: string
+      colorTheme: string
+      light: string
+      dark: string
+    }
+  }
+  features: {
+    title: string
+    visualCapture: {
+      title: string
+      description: string
+    }
+    metadata: {
+      title: string
+      description: string
+    }
+    fullContent: {
+      title: string
+      description: string
+    }
+    exportShare: {
+      title: string
+      description: string
+    }
+    fonts: {
+      title: string
+      description: string
+    }
+    templates: {
+      title: string
+      description: string
+    }
+    export: {
+      title: string
+      description: string
+    }
+  }
+  faq: {
+    title: string
+    subtitle: string
+    items: Array<{
+      question: string
+      answer: string
+    }>
+  }
+  footer: {
+    description: string
+    about: {
+      title: string
+      features: string
+      faq: string
+      contact: string
+      tryNow: string
+    }
+    links: {
+      title: string
+      blog: string
+      docs: string
+      api: string
+      status: string
+    }
+    legal: {
+      title: string
+      privacy: string
+      terms: string
+    }
+    copyright: string
+  }
+}
+
 export const translations: Record<Language, Translation> = {
   zh: {
+    metadata: {
+      title: "Notion字体美化 - 让你的笔记更优雅",
+      description: "专业的Notion笔记美化工具，提供优雅的字体选择和排版样式。让你的笔记更加赏心悦目，提升阅读体验。",
+      keywords: ["Notion美化", "字体美化", "笔记排版", "优雅笔记", "中文排版", "字体设计", "排版工具"]
+    },
     common: {
-      brand: "NotionStyle",
+      brand: "Notion字体美化",
       tryNow: "立即体验",
     },
     nav: {
       features: "核心功能",
       faq: "常见问题",
       contact: "联系我们",
-      tryNow: "立即体验"
+      tryNow: "立即体验",
+      fonts: "字体库",
+      templates: "模板"
     },
     hero: {
-      title: "一键美化 Notion 内容，提升文档排版效果",
-      subtitle: "NotionStyle 是专为 Notion 用户设计的 LaTeX 样式美化工具，快速生成专业且美观的格式化文本和公式。轻松提升您的文档视觉效果，节省排版时间，助力更高效的工作与学习。",
+      title: "让Notion笔记更优雅，让文字更有魅力",
+      subtitle: "专业的Notion笔记美化工具，提供丰富的字体选择和优雅的排版样式。让你的每一篇笔记都成为视觉享受。",
       capture: "开始美化",
+      input: {
+        placeholder: "请输入要美化的文字...",
+        maxLength: "字符"
+      },
       settings: {
-        title: "截图设置",
+        title: "排版设置",
         resolution: "分辨率",
         aspectRatio: "宽高比",
-        colorTheme: "颜色主题",
+        colorTheme: "主题",
         light: "浅色",
         dark: "深色"
       }
@@ -28,46 +138,58 @@ export const translations: Record<Language, Translation> = {
     features: {
       title: "核心功能",
       visualCapture: {
-        title: "丰富样式模板",
-        description: "提供多种排版风格，包括学术、简约、创意等多种模式，满足不同用户需求。"
+        title: "视觉美化",
+        description: "智能识别页面布局，自动优化视觉效果，让笔记更加赏心悦目。"
       },
       metadata: {
-        title: "兼容性强",
-        description: "与 Notion 无缝对接，也支持其他支持 LaTeX 渲染的文档工具。"
+        title: "智能排版",
+        description: "自动优化文字间距、行高和段落布局，让文档结构更加清晰。"
       },
       fullContent: {
-        title: "智能优化",
-        description: "自动根据输入内容推荐合适的排版样式，节省用户的编辑时间。"
+        title: "全文格式化",
+        description: "一键美化整篇文档，包括标题、正文、列表等所有元素。"
       },
       exportShare: {
-        title: "导出与分享",
-        description: "支持将排版后的内容导出为图片或 PDF，方便离线存储和分享。"
+        title: "导出分享",
+        description: "支持多种格式导出，保持完美排版，轻松分享给他人。"
+      },
+      fonts: {
+        title: "专业字体库",
+        description: "提供多种精选字体，从优雅衬线到现代无衬线，满足不同风格需求。"
+      },
+      templates: {
+        title: "优雅排版模板",
+        description: "提供多种精美模板，适用于笔记、文章、简报等多种场景。"
+      },
+      export: {
+        title: "多格式导出",
+        description: "支持导出为PDF、图片等多种格式，保持排版效果的同时方便分享和打印。"
       }
     },
     faq: {
       title: "常见问题",
-      subtitle: "还有其他问题？请通过邮件联系我们。",
+      subtitle: "还有其他问题？请通过邮件联系我们",
       items: [
         {
-          question: "NotionStyle 是什么？它如何工作？",
-          answer: "NotionStyle 是一个在线文字美化工具，专注于提升 Notion 文档的格式化与排版效果。用户通过简单输入文字，NotionStyle 自动应用 LaTeX 样式，生成美观的排版。"
+          question: "支持哪些字体？",
+          answer: "我们提供了多种精选字体，包括经典衬线字体、现代无衬线字体等，满足不同场景的排版需求。"
         },
         {
-          question: "我可以自定义样式吗？",
-          answer: "是的，NotionStyle 提供灵活的样式自定义选项，您可以根据需要调整文字格式、字体大小、颜色等。"
+          question: "如何自定义模板？",
+          answer: "在模板库中选择基础模板后，可以通过设置面板调整字体、颜色、间距等细节参数。"
         },
         {
-          question: "支持哪些格式的内容？",
-          answer: "NotionStyle 支持文本、数学公式以及符号的样式化，尤其适用于需要专业排版的教育、科研和创意类内容。"
+          question: "支持批量处理吗？",
+          answer: "是的，支持批量处理整个页面或数据库中的文本，一键美化所有内容。"
         },
         {
-          question: "使用 NotionStyle 有次数限制吗？",
-          answer: "目前，NotionStyle 对使用次数没有限制，您可以根据需要随时使用。"
+          question: "如何保持排版一致性？",
+          answer: "我们提供样式预设功能，可以保存您喜欢的排版设置，确保所有文档风格统一。"
         }
       ]
     },
     footer: {
-      description: "NotionStyle 是专为 Notion 用户设计的 LaTeX 样式美化工具，让您的文档更专业、更美观。",
+      description: "Notion字体美化是专业的笔记排版工具，让你的文字更优雅、更富有表现力。",
       about: {
         title: "关于",
         features: "核心功能",
@@ -87,29 +209,40 @@ export const translations: Record<Language, Translation> = {
         privacy: "隐私政策",
         terms: "服务条款"
       },
-      copyright: " 2025 NotionStyle. 保留所有权利。"
+      copyright: " 2025 Notion字体美化. 保留所有权利。"
     }
   },
   en: {
+    metadata: {
+      title: "Notion Font Beautifier - Make Your Notes Elegant",
+      description: "Professional Notion note beautification tool with elegant font selection and layout styles. Enhance your reading experience with beautiful typography.",
+      keywords: ["Notion beautifier", "font customization", "note layout", "elegant notes", "typography", "font design", "layout tool"]
+    },
     common: {
-      brand: "NotionStyle",
+      brand: "Notion Font Beautifier",
       tryNow: "Try Now",
     },
     nav: {
-      features: "Core Features",
+      features: "Features",
       faq: "FAQ",
       contact: "Contact",
-      tryNow: "Try Now"
+      tryNow: "Try Now",
+      fonts: "Fonts",
+      templates: "Templates"
     },
     hero: {
-      title: "Enhance Your Notion Content with One Click",
-      subtitle: "NotionStyle is a LaTeX styling tool designed specifically for Notion users, quickly generating professional and beautiful formatted text and formulas. Effortlessly enhance your document's visual appeal, save formatting time, and boost your work and study efficiency.",
-      capture: "Start Styling",
+      title: "Make Your Notion Notes Elegant, Make Text More Charming",
+      subtitle: "Professional Notion note beautification tool with rich font selection and elegant layout styles. Turn every note into a visual delight.",
+      capture: "Start Beautifying",
+      input: {
+        placeholder: "Enter text to beautify...",
+        maxLength: "characters"
+      },
       settings: {
-        title: "Style Settings",
+        title: "Layout Settings",
         resolution: "Resolution",
         aspectRatio: "Aspect Ratio",
-        colorTheme: "Color Theme",
+        colorTheme: "Theme",
         light: "Light",
         dark: "Dark"
       }
@@ -117,49 +250,61 @@ export const translations: Record<Language, Translation> = {
     features: {
       title: "Core Features",
       visualCapture: {
-        title: "Rich Style Templates",
-        description: "Offering various formatting styles including academic, minimalist, and creative modes to meet different user needs."
+        title: "Visual Enhancement",
+        description: "Intelligently recognizes page layout and automatically optimizes visual effects for more appealing notes."
       },
       metadata: {
-        title: "Strong Compatibility",
-        description: "Seamlessly integrates with Notion and supports other document tools that render LaTeX."
+        title: "Smart Typography",
+        description: "Automatically optimizes text spacing, line height, and paragraph layout for clearer document structure."
       },
       fullContent: {
-        title: "Smart Optimization",
-        description: "Automatically recommends suitable formatting styles based on input content, saving users' editing time."
+        title: "Full Content Formatting",
+        description: "One-click beautification of entire documents, including headings, body text, lists, and all elements."
       },
       exportShare: {
         title: "Export & Share",
-        description: "Export styled content as images or PDFs for offline storage and easy sharing."
+        description: "Support multiple export formats while maintaining perfect layout for easy sharing."
+      },
+      fonts: {
+        title: "Professional Font Library",
+        description: "Offering various curated fonts, from elegant serif to modern sans-serif, meeting different style needs."
+      },
+      templates: {
+        title: "Elegant Layout Templates",
+        description: "Providing multiple beautiful templates suitable for notes, articles, reports, and more."
+      },
+      export: {
+        title: "Multi-format Export",
+        description: "Export to PDF, images, and other formats while maintaining layout quality for easy sharing and printing."
       }
     },
     faq: {
       title: "FAQ",
-      subtitle: "Have more questions? Contact us via email.",
+      subtitle: "More questions? Contact us via email",
       items: [
         {
-          question: "What is NotionStyle and how does it work?",
-          answer: "NotionStyle is an online text beautification tool focused on enhancing the formatting and layout of Notion documents. Users simply input text, and NotionStyle automatically applies LaTeX styles to create beautiful typography."
+          question: "What fonts are supported?",
+          answer: "We offer a variety of curated fonts, including classic serif and modern sans-serif fonts, suitable for different typography needs."
         },
         {
-          question: "Can I customize the styles?",
-          answer: "Yes, NotionStyle offers flexible style customization options, allowing you to adjust text formatting, font size, colors, and more according to your needs."
+          question: "How to customize templates?",
+          answer: "After selecting a base template from the library, you can adjust fonts, colors, spacing, and other parameters through the settings panel."
         },
         {
-          question: "What types of content are supported?",
-          answer: "NotionStyle supports styling of text, mathematical formulas, and symbols, particularly suitable for educational, research, and creative content requiring professional formatting."
+          question: "Is batch processing supported?",
+          answer: "Yes, you can process text across an entire page or database, beautifying all content with one click."
         },
         {
-          question: "Is there a usage limit for NotionStyle?",
-          answer: "Currently, NotionStyle has no usage limits, and you can use it whenever needed."
+          question: "How to maintain consistent typography?",
+          answer: "We provide style presets feature where you can save your favorite typography settings to ensure consistency across all documents."
         }
       ]
     },
     footer: {
-      description: "NotionStyle is a LaTeX styling tool designed for Notion users, making your documents more professional and beautiful.",
+      description: "Notion Font Beautifier is a professional note typography tool that makes your text more elegant and expressive.",
       about: {
         title: "About",
-        features: "Core Features",
+        features: "Features",
         faq: "FAQ",
         contact: "Contact",
         tryNow: "Try Now"
@@ -176,7 +321,7 @@ export const translations: Record<Language, Translation> = {
         privacy: "Privacy Policy",
         terms: "Terms of Service"
       },
-      copyright: " 2025 NotionStyle. All rights reserved."
+      copyright: " 2025 Notion Font Beautifier. All rights reserved."
     }
   }
 }

@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import { Globe } from 'lucide-react'
+import { Type } from 'lucide-react'
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
@@ -36,10 +36,10 @@ export function HeroSection({ lang }: HeroSectionProps) {
             <div className="flex flex-col gap-2 mb-8">
               <div className="relative">
                 <div className="absolute inset-y-0 left-3 top-3 flex items-start pointer-events-none">
-                  <Globe className="h-5 w-5 text-gray-400" />
+                  <Type className="h-5 w-5 text-gray-400" />
                 </div>
                 <textarea
-                  placeholder="请输入要美化的文字..."
+                  placeholder={t.hero.input.placeholder}
                   value={url}
                   onChange={(e) => {
                     const text = e.target.value;
@@ -49,8 +49,8 @@ export function HeroSection({ lang }: HeroSectionProps) {
                   }}
                   className="pl-10 w-full min-h-[120px] rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 resize-none"
                 />
-                <div className="absolute bottom-2 right-2 text-sm text-gray-400">
-                  {url.length}/10000
+                <div className="absolute right-3 bottom-3 text-sm text-gray-400">
+                  {url.length}/10000 {t.hero.input.maxLength}
                 </div>
               </div>
               <Button size="lg" className="bg-[#FF4D4D] hover:bg-[#ff3333] text-white px-8">

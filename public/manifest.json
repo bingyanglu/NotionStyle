@@ -1,0 +1,21 @@
+{
+  "name": "Notion字体LaTeX美化",
+  "short_name": "Notion美化",
+  "description": "专业的Notion笔记美化工具，支持LaTeX数学公式排版，提供优雅的字体选择和排版样式",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#000000",
+  "icons": [
+    {
+      "src": "/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
