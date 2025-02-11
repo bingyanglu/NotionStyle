@@ -21,7 +21,7 @@ export function HeroSection({ lang }: HeroSectionProps) {
   const t = translations[lang]
   const [text, setText] = useState("")
   const [backgroundColor, setBackgroundColor] = useState("")  // 将font改为backgroundColor
-  const [size, setSize] = useState("medium")
+  const [size, setSize] = useState("normalsize")
   const [style, setStyle] = useState("normal")
   const [color, setColor] = useState("")  
   const [katexOutput, setKatexOutput] = useState("")
@@ -136,18 +136,52 @@ export function HeroSection({ lang }: HeroSectionProps) {
 
       let processedText = text
       
-      // 添加字体样式
-      if (style === 'bold') {
-        processedText = `\\textbf{${processedText}}`
-      } else if (style === 'italic') {
-        processedText = `\\textit{${processedText}}`
+      // 处理数学模式命令
+      if (style !== 'normal') {
+        // 数学模式命令需要放在$...$中
+        if (backgroundColor && ['widetilde', 'utilde', 'overleftarrow', 'overrightarrow', 'underleftarrow', 'underrightarrow', 
+            'overleftrightarrow', 'overbrace', 'underbrace', 'overline', 'underline'].includes(style)) {
+          processedText = `$\\${style}{${processedText}}$`
+        } else {
+          // 其他样式直接使用命令
+          processedText = `\\${style}{${processedText}}`
+        }
       }
 
       // 添加字体大小
-      if (size === 'small') {
-        processedText = `\\small{${processedText}}`
-      } else if (size === 'large') {
-        processedText = `\\large{${processedText}}`
+      if (size) {
+        switch(size) {
+          case 'tiny':
+            processedText = `\\tiny{${processedText}}`
+            break
+          case 'scriptsize':
+            processedText = `\\scriptsize{${processedText}}`
+            break
+          case 'footnotesize':
+            processedText = `\\footnotesize{${processedText}}`
+            break
+          case 'small':
+            processedText = `\\small{${processedText}}`
+            break
+          case 'normalsize':
+            processedText = `\\normalsize{${processedText}}`
+            break
+          case 'large':
+            processedText = `\\large{${processedText}}`
+            break
+          case 'Large':
+            processedText = `\\Large{${processedText}}`
+            break
+          case 'LARGE':
+            processedText = `\\LARGE{${processedText}}`
+            break
+          case 'huge':
+            processedText = `\\huge{${processedText}}`
+            break
+          case 'Huge':
+            processedText = `\\Huge{${processedText}}`
+            break
+        }
       }
 
       // 添加字体颜色和背景色
@@ -194,7 +228,7 @@ export function HeroSection({ lang }: HeroSectionProps) {
                   <Select
                     value={backgroundColor}
                     onValueChange={(value) => {
-                      setBackgroundColor(value)
+                      setBackgroundColor(value === 'clear' ? '' : value)
                       setBgSearchValue(bgSearchValue)
                     }}
                   >
@@ -214,6 +248,7 @@ export function HeroSection({ lang }: HeroSectionProps) {
                         />
                       </div>
                       <div className="max-h-[300px] overflow-y-auto" onScroll={handleBgScroll}>
+                        <SelectItem value="clear">清除背景色</SelectItem>
                         {memoizedBgColorOptions}
                       </div>
                     </SelectContent>
@@ -228,24 +263,42 @@ export function HeroSection({ lang }: HeroSectionProps) {
                       <SelectValue placeholder={t.hero.settings.selectSize} />
                     </SelectTrigger>
                     <SelectContent>
+                      <SelectItem value="tiny">极小</SelectItem>
+                      <SelectItem value="scriptsize">超小</SelectItem>
+                      <SelectItem value="footnotesize">脚注小号</SelectItem>
                       <SelectItem value="small">小号</SelectItem>
-                      <SelectItem value="medium">中号</SelectItem>
+                      <SelectItem value="normalsize">标准</SelectItem>
                       <SelectItem value="large">大号</SelectItem>
+                      <SelectItem value="Large">较大</SelectItem>
+                      <SelectItem value="LARGE">超大</SelectItem>
+                      <SelectItem value="huge">巨大</SelectItem>
+                      <SelectItem value="Huge">特大</SelectItem>
                     </SelectContent>
                   </Select>
                 </div>
 
                 {/* 样式选择 */}
                 <div className="space-y-2">
-                  <Label>字体效果</Label>
+                  <Label>文字装饰</Label>
                   <Select value={style} onValueChange={setStyle}>
                     <SelectTrigger>
                       <SelectValue placeholder={t.hero.settings.selectStyle} />
                     </SelectTrigger>
                     <SelectContent>
                       <SelectItem value="normal">常规</SelectItem>
-                      <SelectItem value="bold">粗体</SelectItem>
-                      <SelectItem value="italic">斜体</SelectItem>
+                      <SelectItem value="textbf">加粗</SelectItem>
+                      <SelectItem value="textit">斜体</SelectItem>
+                      <SelectItem value="widetilde">文字上方波浪线条</SelectItem>
+                      <SelectItem value="utilde">文字下方波浪线条</SelectItem>
+                      <SelectItem value="overleftarrow">文字上方往左箭头</SelectItem>
+                      <SelectItem value="overrightarrow">文字上方往右箭头</SelectItem>
+                      <SelectItem value="underleftarrow">文字下方往左箭头</SelectItem>
+                      <SelectItem value="underrightarrow">文字下方往右箭头</SelectItem>
+                      <SelectItem value="overleftrightarrow">文字上方双箭头</SelectItem>
+                      <SelectItem value="overbrace">文字上方括号</SelectItem>
+                      <SelectItem value="underbrace">文字下方括号</SelectItem>
+                      <SelectItem value="overline">文字上方线条</SelectItem>
+                      <SelectItem value="underline">文字下方线条</SelectItem>
                     </SelectContent>
                   </Select>
                 </div>
@@ -256,7 +309,7 @@ export function HeroSection({ lang }: HeroSectionProps) {
                   <Select
                     value={color}
                     onValueChange={(value) => {
-                      setColor(value)
+                      setColor(value === 'clear' ? '' : value)
                       setSearchValue(searchValue)
                     }}
                   >
@@ -276,6 +329,7 @@ export function HeroSection({ lang }: HeroSectionProps) {
                         />
                       </div>
                       <div className="max-h-[300px] overflow-y-auto" onScroll={handleScroll}>
+                        <SelectItem value="clear">清除颜色</SelectItem>
                         {memoizedColorOptions}
                       </div>
                     </SelectContent>
@@ -319,9 +373,18 @@ export function HeroSection({ lang }: HeroSectionProps) {
                   <button
                     onClick={() => {
                       navigator.clipboard.writeText(katexText);
-                      alert('复制成功！');
+                      const button = document.activeElement as HTMLButtonElement;
+                      if (button) {
+                        const originalText = button.innerHTML;
+                        button.innerHTML = '已复制';
+                        button.classList.add('bg-green-100', 'text-green-600');
+                        setTimeout(() => {
+                          button.innerHTML = originalText;
+                          button.classList.remove('bg-green-100', 'text-green-600');
+                        }, 1000);
+                      }
                     }}
-                    className="p-2 rounded-md bg-gray-100 hover:bg-gray-200 transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 flex items-center gap-1 text-sm text-gray-600"
+                    className="p-2 rounded-md bg-gray-100 hover:bg-gray-200 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 flex items-center gap-1 text-sm text-gray-600"
                   >
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3" />
