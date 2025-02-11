@@ -185,59 +185,8 @@ export function HeroSection({ lang }: HeroSectionProps) {
           <p className="text-gray-600 text-lg mb-12 max-w-3xl mx-auto">
             {t.hero.subtitle}
           </p>
-
-          <div className="max-w-6xl mx-auto">
-            <div className="grid grid-cols-2 gap-8 mb-8">
-              {/* 左侧输入区域 */}
-              <div className="relative">
-                {/* <div className="absolute inset-y-0 left-3 top-3 flex items-start pointer-events-none">
-                  <Type className="h-5 w-5 text-gray-400" />
-                </div> */}
-                <textarea
-                  placeholder={t.hero.input.placeholder}
-                  value={text}
-                  onChange={(e) => {
-                    const newText = e.target.value;
-                    if (newText.length <= 10000) {
-                      setText(newText);
-                    }
-                  }}
-                  className="pl-10 w-full min-h-[300px] rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 resize-none"
-                />
-                <div className="absolute right-3 bottom-3 text-sm text-gray-400">
-                  {text.length}/10000 {t.hero.input.maxLength}
-                </div>
-              </div>
-
-              {/* 右侧预览区域 */}
-              <div className="flex flex-col gap-4">
-                {/* 预览效果 */}
-                <div className="bg-white p-6 rounded-lg shadow-sm">
-                  <h3 className="text-lg font-semibold mb-4">预览效果</h3>
-                  <div
-                    className="katex-preview"
-                    dangerouslySetInnerHTML={{ __html: katexOutput }}
-                  />
-                </div>
-                
-                {/* KaTeX表达式 */}
-                <div className="bg-white p-6 rounded-lg shadow-sm">
-                  <h3 className="text-lg font-semibold mb-4">KaTeX表达式</h3>
-                  <textarea
-                    readOnly
-                    value={katexText}
-                    onClick={(e) => {
-                      e.currentTarget.select();
-                      navigator.clipboard.writeText(katexText);
-                    }}
-                    className="w-full min-h-[100px] rounded-md border border-input bg-muted px-3 py-2 text-sm font-mono focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 resize-none"
-                  />
-                </div>
-              </div>
-            </div>
-
-            {/* 控制面板区域 */}
-            <div className="bg-white p-6 rounded-lg shadow-sm">
+{/* 控制面板区域 */}
+<div className="bg-white p-6 rounded-lg shadow-sm">
               <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
                 {/* 背景色选择 */}
                 <div className="space-y-2">
@@ -334,6 +283,67 @@ export function HeroSection({ lang }: HeroSectionProps) {
                 </div>
               </div>
             </div>
+          <div className="max-w-6xl mx-auto">
+            <div className="flex flex-col gap-8 mb-8">
+              {/* 文本输入区域 */}
+              <div className="relative">
+                <textarea
+                  placeholder={t.hero.input.placeholder}
+                  value={text}
+                  onChange={(e) => {
+                    const newText = e.target.value;
+                    if (newText.length <= 1000) {
+                      setText(newText);
+                    }
+                  }}
+                  className="w-full min-h-[120px] rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 resize-none"
+                />
+                <div className="absolute right-3 bottom-3 text-sm text-gray-400">
+                  {text.length}/1000 {t.hero.input.maxLength}
+                </div>
+              </div>
+
+              {/* 预览效果 */}
+              <div className="bg-white p-6 rounded-lg shadow-sm">
+                {/* <h3 className="text-lg font-semibold mb-4">预览效果</h3> */}
+                <div
+                  className="katex-preview"
+                  dangerouslySetInnerHTML={{ __html: katexOutput }}
+                />
+              </div>
+              
+              {/* KaTeX表达式 */}
+              <div className="bg-white p-6 rounded-lg shadow-sm">
+                <h3 className="text-lg font-semibold mb-4 flex justify-between items-center">
+                  <span>KaTeX表达式</span>
+                  <button
+                    onClick={() => {
+                      navigator.clipboard.writeText(katexText);
+                      alert('复制成功！');
+                    }}
+                    className="p-2 rounded-md bg-gray-100 hover:bg-gray-200 transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 flex items-center gap-1 text-sm text-gray-600"
+                  >
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3" />
+                    </svg>
+                    复制
+                  </button>
+                </h3>
+                <div className="relative">
+                  <textarea
+                    readOnly
+                    value={katexText}
+                    onClick={(e) => {
+                      e.currentTarget.select();
+                      navigator.clipboard.writeText(katexText);
+                    }}
+                    className="w-full min-h-[100px] rounded-md border border-input bg-muted px-3 py-2 text-sm font-mono focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 resize-none"
+                  />
+                </div>
+              </div>
+            </div>
+
+            
           </div>
         </div>
       </div>
