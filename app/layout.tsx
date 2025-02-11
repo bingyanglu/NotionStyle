@@ -6,6 +6,12 @@ import { translations } from '@/lib/i18n/translations'
 // 使用 Inter 字体
 const inter = Inter({ subsets: ['latin'] })
 
+export const viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 1,
+}
+
 export async function generateMetadata({ params, searchParams }: {
   params: { lang?: string }
   searchParams: { [key: string]: string | string[] | undefined }
@@ -59,11 +65,6 @@ export async function generateMetadata({ params, searchParams }: {
         'zh-CN': 'https://notion-style.vercel.app?lang=zh',
         'en-US': 'https://notion-style.vercel.app?lang=en',
       },
-    },
-    viewport: {
-      width: 'device-width',
-      initialScale: 1,
-      maximumScale: 1,
     },
     verification: {
       google: 'google-site-verification-code', // 需要替换为实际的验证码
