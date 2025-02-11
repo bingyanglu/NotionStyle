@@ -22,6 +22,10 @@ export type Translation = {
     title: string
     subtitle: string
     capture: string
+    katex: {
+      title: string
+      copy: string
+    }
     input: {
       placeholder: string
       maxLength: string
@@ -122,6 +126,10 @@ export const translations: Record<Language, Translation> = {
       title: "让Notion笔记更优雅，排版更专业",
       subtitle: "Notion排版大师提供LaTeX与KaTeX支持，让您的笔记更具视觉魅力与专业感。",
       capture: "开始美化",
+      katex: {
+        title: "KaTeX表达式",
+        copy: "复制"
+      },
       input: {
         placeholder: "请输入要美化的文字...",
         maxLength: "字符"
@@ -214,12 +222,12 @@ export const translations: Record<Language, Translation> = {
   },
   en: {
     metadata: {
-      title: "Notion Font Beautifier - Make Your Notes Elegant",
-      description: "Professional Notion note beautification tool with elegant font selection and layout styles. Enhance your reading experience with beautiful typography.",
-      keywords: ["Notion beautifier", "font customization", "note layout", "elegant notes", "typography", "font design", "layout tool"]
+      title: "Notion Typography Master - Enhance Your Note Layout",
+      description: "Notion Typography Master provides professional text layout and beautification tools, supporting LaTeX and KaTeX typesetting, making your Notion notes more elegant and professional.",
+      keywords: ["Notion typography", "Notion Typography Master", "Notion font beautification", "LaTeX typography", "KaTeX typography", "text beautification tool", "elegant note layout", "Notion text layout"]
     },
     common: {
-      brand: "Notion Font Beautifier",
+      brand: "Notion Typography Master",
       tryNow: "Try Now",
     },
     nav: {
@@ -231,9 +239,13 @@ export const translations: Record<Language, Translation> = {
       templates: "Templates"
     },
     hero: {
-      title: "Make Your Notion Notes Elegant, Make Text More Charming",
-      subtitle: "Professional Notion note beautification tool with rich font selection and elegant layout styles. Turn every note into a visual delight.",
+      title: "Make Your Notion Notes More Elegant, Layout More Professional",
+      subtitle: "Notion Typography Master provides LaTeX and KaTeX support, adding visual appeal and professionalism to your notes.",
       capture: "Start Beautifying",
+      katex: {
+        title: "KaTeX Expression",
+        copy: "Copy"
+      },
       input: {
         placeholder: "Enter text to beautify...",
         maxLength: "characters"
@@ -255,7 +267,7 @@ export const translations: Record<Language, Translation> = {
       },
       metadata: {
         title: "Font & Layout Beautification",
-        description: "Offers various font styles and layout templates, automatically optimizes text formatting to make your Notion notes both beautiful and readable."
+        description: "Provides various font styles and layout templates, automatically optimizes text formatting to make your Notion notes both beautiful and readable."
       },
       fullContent: {
         title: "Smart Layout Assistant",
@@ -263,19 +275,19 @@ export const translations: Record<Language, Translation> = {
       },
       exportShare: {
         title: "One-Click Copy & Export",
-        description: "Easily copy optimized content to Notion, support one-click export of formatted content for convenient sharing with others."
+        description: "Easily copy optimized content to Notion, supports one-click export of formatted content for convenient sharing with others."
       },
       fonts: {
         title: "Professional Font Library",
-        description: "Offering various curated fonts, from elegant serif to modern sans-serif, meeting different style needs."
+        description: "Provides a variety of curated fonts, from elegant serif to modern sans-serif, meeting different style needs."
       },
       templates: {
         title: "Elegant Layout Templates",
-        description: "Providing multiple beautiful templates suitable for notes, articles, reports, and more."
+        description: "Provides multiple beautiful templates suitable for notes, articles, reports, and various scenarios."
       },
       export: {
         title: "Multi-format Export",
-        description: "Export to PDF, images, and other formats while maintaining layout quality for easy sharing and printing."
+        description: "Supports export to PDF, images, and other formats while maintaining layout quality for easy sharing and printing."
       }
     },
     faq: {
@@ -301,7 +313,7 @@ export const translations: Record<Language, Translation> = {
       ]
     },
     footer: {
-      description: "Notion Font Beautifier is a professional note typography tool that makes your text more elegant and expressive.",
+      description: "Notion Typography Master provides LaTeX and KaTeX support, adding visual appeal and professionalism to your notes.",
       about: {
         title: "About",
         features: "Features",
