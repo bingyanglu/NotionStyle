@@ -80,13 +80,13 @@ export function SiteHeader({ lang }: SiteHeaderProps) {
                 <Clock className="h-4 w-4" />
                 <span>{t.nav.faq}</span>
               </button>
-              <button
-                onClick={() => scrollToSection("contact")}
+              <a
+                href="mailto:bingqilinpeishenme@gmail.com"
                 className="flex items-center space-x-2 text-sm font-medium text-gray-600 hover:text-[#FF4D4D] transition-colors"
               >
                 <Mail className="h-4 w-4" />
                 <span>{t.nav.contact}</span>
-              </button>
+              </a>
               <LanguageToggle currentLang={lang} />
             </div>
           </div>

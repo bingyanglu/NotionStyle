@@ -202,8 +202,7 @@ export const translations: Record<Language, Translation> = {
         title: "关于",
         features: "核心功能",
         faq: "常见问题",
-        contact: "联系我们",
-        tryNow: "立即体验"
+        contact: "联系我们"
       },
       links: {
         title: "链接",
