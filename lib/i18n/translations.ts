@@ -102,12 +102,12 @@ export type Translation = {
 export const translations: Record<Language, Translation> = {
   zh: {
     metadata: {
-      title: "Notion字体美化 - 让你的笔记更优雅",
-      description: "专业的Notion笔记美化工具，提供优雅的字体选择和排版样式。让你的笔记更加赏心悦目，提升阅读体验。",
-      keywords: ["Notion美化", "字体美化", "笔记排版", "优雅笔记", "中文排版", "字体设计", "排版工具"]
-    },
+        title: "Notion排版大师 - 提升笔记排版与文字美化",
+        description: "Notion排版大师为用户提供专业的文字排版与美化工具，支持LaTeX和KaTeX排版，让您的Notion笔记更优雅、更专业。",
+        keywords: ["Notion排版","Notion排版大师", "Notion字体美化", "LaTeX排版", "KaTeX排版", "文字美化工具", "优雅笔记排版", "Notion文字排版"]
+  },
     common: {
-      brand: "Notion字体美化",
+      brand: "Notion排版大师",
       tryNow: "立即体验",
     },
     nav: {
@@ -119,8 +119,8 @@ export const translations: Record<Language, Translation> = {
       templates: "模板"
     },
     hero: {
-      title: "让Notion笔记更优雅，让文字更有魅力",
-      subtitle: "专业的Notion笔记美化工具，提供丰富的字体选择和优雅的排版样式。让你的每一篇笔记都成为视觉享受。",
+      title: "让Notion笔记更优雅，排版更专业",
+      subtitle: "Notion排版大师提供LaTeX与KaTeX支持，让您的笔记更具视觉魅力与专业感。",
       capture: "开始美化",
       input: {
         placeholder: "请输入要美化的文字...",
@@ -138,20 +138,20 @@ export const translations: Record<Language, Translation> = {
     features: {
       title: "核心功能",
       visualCapture: {
-        title: "视觉美化",
-        description: "智能识别页面布局，自动优化视觉效果，让笔记更加赏心悦目。"
+        title: "LaTeX与KaTeX排版支持",
+        description: "支持LaTeX和KaTeX排版引擎，轻松将数学公式、符号和文本转化为专业的排版效果，提升Notion笔记的学术感和专业度。"
       },
       metadata: {
-        title: "智能排版",
-        description: "自动优化文字间距、行高和段落布局，让文档结构更加清晰。"
+        title: "字体与排版美化",
+        description: "提供多种字体样式和排版模板，自动优化文本格式，让您的Notion笔记既美观又易读。"
       },
       fullContent: {
-        title: "全文格式化",
-        description: "一键美化整篇文档，包括标题、正文、列表等所有元素。"
+        title: "智能排版助手",
+        description: "自动优化文本间距、对齐方式，帮助用户快速调整段落、标题和列表，保持排版整洁、专业。"
       },
       exportShare: {
-        title: "导出分享",
-        description: "支持多种格式导出，保持完美排版，轻松分享给他人。"
+        title: "一键复制与导出",
+        description: "轻松将优化后的内容复制到Notion，支持一键导出排版后的内容，方便快捷地与他人分享。"
       },
       fonts: {
         title: "专业字体库",
@@ -171,25 +171,25 @@ export const translations: Record<Language, Translation> = {
       subtitle: "还有其他问题？请通过邮件联系我们",
       items: [
         {
-          question: "支持哪些字体？",
-          answer: "我们提供了多种精选字体，包括经典衬线字体、现代无衬线字体等，满足不同场景的排版需求。"
+          question: "如何将排版内容复制到Notion中？",
+          answer: "只需在网站上完成排版后，点击「一键复制」按钮，复制转换后的LaTeX或文本内容，直接粘贴到Notion中即可。"
         },
         {
-          question: "如何自定义模板？",
-          answer: "在模板库中选择基础模板后，可以通过设置面板调整字体、颜色、间距等细节参数。"
+          question: "网站支持哪些排版格式？",
+          answer: "我们支持LaTeX和KaTeX格式的文字排版，以及文本的字体、大小、颜色、效果等常见排版样式。"
         },
         {
-          question: "支持批量处理吗？",
-          answer: "是的，支持批量处理整个页面或数据库中的文本，一键美化所有内容。"
+          question: "是否需要安装任何插件或扩展？",
+          answer: "不需要。我们的网站完全基于浏览器操作，用户无需安装任何插件或扩展即可使用所有功能。"
         },
         {
-          question: "如何保持排版一致性？",
-          answer: "我们提供样式预设功能，可以保存您喜欢的排版设置，确保所有文档风格统一。"
+          question: "是否支持导出为其他格式？",
+          answer: "是的，您可以将排版后的内容导出为文本或直接复制，以便与他人分享或导入到其他平台。"
         }
       ]
     },
     footer: {
-      description: "Notion字体美化是专业的笔记排版工具，让你的文字更优雅、更富有表现力。",
+      description: "Notion排版大师提供LaTeX与KaTeX支持，让您的笔记更具视觉魅力与专业感。",
       about: {
         title: "关于",
         features: "核心功能",
@@ -209,7 +209,7 @@ export const translations: Record<Language, Translation> = {
         privacy: "隐私政策",
         terms: "服务条款"
       },
-      copyright: " 2025 Notion字体美化. 保留所有权利。"
+      copyright: " 2025 Notion排版大师. 保留所有权利。"
     }
   },
   en: {
@@ -250,20 +250,20 @@ export const translations: Record<Language, Translation> = {
     features: {
       title: "Core Features",
       visualCapture: {
-        title: "Visual Enhancement",
-        description: "Intelligently recognizes page layout and automatically optimizes visual effects for more appealing notes."
+        title: "LaTeX & KaTeX Support",
+        description: "Supports LaTeX and KaTeX typesetting engines, easily transform mathematical formulas, symbols, and text into professional typesetting effects, enhancing the academic and professional feel of your Notion notes."
       },
       metadata: {
-        title: "Smart Typography",
-        description: "Automatically optimizes text spacing, line height, and paragraph layout for clearer document structure."
+        title: "Font & Layout Beautification",
+        description: "Offers various font styles and layout templates, automatically optimizes text formatting to make your Notion notes both beautiful and readable."
       },
       fullContent: {
-        title: "Full Content Formatting",
-        description: "One-click beautification of entire documents, including headings, body text, lists, and all elements."
+        title: "Smart Layout Assistant",
+        description: "Automatically optimizes text spacing and alignment, helps users quickly adjust paragraphs, headings, and lists to maintain clean and professional layouts."
       },
       exportShare: {
-        title: "Export & Share",
-        description: "Support multiple export formats while maintaining perfect layout for easy sharing."
+        title: "One-Click Copy & Export",
+        description: "Easily copy optimized content to Notion, support one-click export of formatted content for convenient sharing with others."
       },
       fonts: {
         title: "Professional Font Library",
@@ -283,20 +283,20 @@ export const translations: Record<Language, Translation> = {
       subtitle: "More questions? Contact us via email",
       items: [
         {
-          question: "What fonts are supported?",
-          answer: "We offer a variety of curated fonts, including classic serif and modern sans-serif fonts, suitable for different typography needs."
+          question: "How to copy formatted content to Notion?",
+          answer: "After completing the formatting on our website, simply click the 'Copy' button to copy the converted LaTeX or text content, then paste it directly into Notion."
         },
         {
-          question: "How to customize templates?",
-          answer: "After selecting a base template from the library, you can adjust fonts, colors, spacing, and other parameters through the settings panel."
+          question: "What formatting options are supported?",
+          answer: "We support LaTeX and KaTeX formatting for text, as well as common typography styles including font, size, color, and effects."
         },
         {
-          question: "Is batch processing supported?",
-          answer: "Yes, you can process text across an entire page or database, beautifying all content with one click."
+          question: "Do I need to install any plugins or extensions?",
+          answer: "No. Our website is completely browser-based, and users can access all features without installing any plugins or extensions."
         },
         {
-          question: "How to maintain consistent typography?",
-          answer: "We provide style presets feature where you can save your favorite typography settings to ensure consistency across all documents."
+          question: "Can I export to other formats?",
+          answer: "Yes, you can export your formatted content as text or copy it directly for sharing with others or importing into other platforms."
         }
       ]
     },

@@ -65,7 +65,7 @@ export function SiteHeader({ lang }: SiteHeaderProps) {
               </Link>
             </div>
 
-            <nav className="hidden md:flex items-center space-x-8">
+            <div className="hidden md:flex items-center space-x-8 ml-auto">
               <button
                 onClick={() => scrollToSection("features")}
                 className="flex items-center space-x-2 text-sm font-medium text-gray-600 hover:text-[#FF4D4D] transition-colors"
@@ -87,22 +87,6 @@ export function SiteHeader({ lang }: SiteHeaderProps) {
                 <Mail className="h-4 w-4" />
                 <span>{t.nav.contact}</span>
               </button>
-              <button
-                onClick={() => scrollToSection("try")}
-                className="flex items-center space-x-2 text-sm font-medium text-gray-600 hover:text-[#FF4D4D] transition-colors"
-              >
-                <User2 className="h-4 w-4" />
-                <span>{t.nav.tryNow}</span>
-              </button>
-            </nav>
-
-            <div className="flex items-center space-x-4">
-              <Link
-                href="https://twitter.com/sitesnapper"
-                className="text-gray-600 hover:text-[#FF4D4D] transition-colors"
-              >
-                <Twitter className="h-5 w-5" />
-              </Link>
               <LanguageToggle currentLang={lang} />
             </div>
           </div>
